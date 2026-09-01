@@ -124,6 +124,32 @@ main {
   margin: 0 0 1.1rem;
 }
 
+/* Research: two columns on desktop, stacked on narrow screens.
+   The page opts into a wider container via <body class="wide">. */
+body.wide { --max-width: 1060px; }
+
+.research-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 1rem 3.25rem;
+  align-items: start;
+}
+
+.research-cols > div > section.pub-section:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 820px) {
+  body.wide { --max-width: 760px; }
+  .research-cols {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .research-cols > div > section.pub-section:last-child {
+    margin-bottom: 2.5rem;
+  }
+}
+
 /* Section blocks */
 section.pub-section {
   margin-bottom: 2.5rem;
